@@ -197,7 +197,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Button variant="ghost" size="icon" asChild className="hover:bg-primary/10 hover:text-primary transition-all duration-300">
-                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/darshanbhere7" target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
                   </a>
                 </Button>
@@ -208,7 +208,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.9 }}
               >
                 <Button variant="ghost" size="icon" asChild className="hover:bg-primary/10 hover:text-primary transition-all duration-300">
-                  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/darshan-bhere-b69a14260/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
                   </a>
                 </Button>
