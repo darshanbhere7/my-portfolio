@@ -3,10 +3,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Eye, Code, Sparkles, Zap, Users, Database, Brain, Smartphone, Globe, Palette } from 'lucide-react';
-import carsworldImg from '@/assets/carsworld.jpg';
-import wandersplitImg from '@/assets/wandersplit.jpg';
-import algotracexImg from '@/assets/algotracex.jpg';
-import unnatiImg from '@/assets/unnati.jpg';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -23,7 +19,7 @@ const Projects = () => {
     {
       title: 'CarsWorld – Car Rental Platform',
       description: 'Full-stack car rental app with real-time dashboard, booking, wishlist, reviews, and image uploads.',
-      image: carsworldImg,
+      image: '/carsworld.jpg',
       tags: ['MERN Stack', 'Socket.io', 'ImageKit', 'React', 'Tailwind CSS'],
       githubUrl: 'https://github.com/darshanbhere7/CarsWorld',
       features: ['Real-time Updates', 'JWT Auth', 'Admin/User Modules', '3D Car Visualization'],
@@ -34,7 +30,7 @@ const Projects = () => {
     {
       title: 'WanderSplit – Travel Expense Splitter',
       description: 'Cross-platform app to manage and split travel expenses with real-time sync and analytics.',
-      image: wandersplitImg,
+      image: '/wandersplit.jpg',
       tags: ['Flutter', 'Firebase', 'fl_chart', 'Responsive UI'],
       githubUrl: 'https://github.com/darshanbhere7/wanderSplit',
       features: ['Custom Splits', 'Receipt Uploads', 'Realtime Tracking', 'Analytics'],
@@ -45,7 +41,7 @@ const Projects = () => {
     {
       title: 'AlgoTraceX – DSA Learning Platform',
       description: 'Interactive DSA learning with visualizations, practice, analytics, and AI-powered help.',
-      image: algotracexImg,
+      image: '/algotracex.jpg',
       tags: ['MERN Stack', 'Gemini API', 'React', 'Node.js'],
       githubUrl: 'https://github.com/darshanbhere7/AlgoTraceX',
       features: ['Topic Visualizations', 'Practice Questions', 'AI Assistant', 'Admin Dashboard'],
@@ -56,7 +52,7 @@ const Projects = () => {
     {
       title: 'Unnati – Rural Girls Empowerment',
       description: 'Social impact platform for rural girls: learning, mentorship, and career support.',
-      image: unnatiImg,
+      image: '/unnati.jpg',
       tags: ['MERN', 'Firebase', 'React', 'Tailwind CSS', 'Radix UI'],
       githubUrl: 'https://github.com/TejasDesai007/Rural_Girls_Empowerment',
       features: ['Mentor Sections', 'Dashboard', 'Accessible UI', 'Responsive Design'],
@@ -143,22 +139,23 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto w-full px-2 sm:px-4 lg:px-0">
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="group flex flex-col md:flex-row items-stretch bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 min-h-[260px] max-h-[340px] w-full"
+              className="group flex flex-col md:flex-row items-stretch bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 min-h-[260px] max-h-[420px] w-full md:min-h-[260px] md:max-h-[340px]"
               style={{
                 animationDelay: `${index * 150}ms`,
                 animation: 'fadeInUp 0.8s ease-out forwards',
               }}
             >
               {/* Project Image */}
-              <div className="md:w-2/5 w-full h-48 md:h-auto relative overflow-hidden">
+              <div className="md:w-2/5 w-full h-48 md:h-auto relative overflow-hidden min-h-[180px]">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="object-cover w-full h-full transition-all duration-700 group-hover:scale-105"
+                  loading="lazy"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-40 transition-all duration-500`}></div>
                 <div className={`absolute top-4 left-4 px-3 py-1 ${getStatusColor(project.status)} text-white text-xs font-bold rounded-full shadow-lg`}>{project.status}</div>
@@ -173,10 +170,14 @@ const Projects = () => {
                 </a>
               </div>
               {/* Project Content */}
-              <div className="flex-1 flex flex-col justify-between p-6 space-y-4">
+              <div className="flex-1 flex flex-col justify-between p-6 space-y-4 min-w-0">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mt-2 mb-4 leading-relaxed">{project.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 break-words">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mt-2 mb-4 leading-relaxed break-words">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-2">
                     {project.tags.map((tag, tagIndex) => (
                       <Badge key={tagIndex} variant="secondary" className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 border-0 hover:scale-105 transition-transform duration-200">{tag}</Badge>

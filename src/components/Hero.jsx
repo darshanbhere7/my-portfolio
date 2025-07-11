@@ -245,13 +245,14 @@ const Hero = () => {
                 
                 {/* Image container */}
                 <motion.div
-                  className="relative aspect-square w-80 md:w-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl group-hover:border-primary/50 transition-all duration-500"
+                  className="relative aspect-square w-64 sm:w-80 md:w-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl group-hover:border-primary/50 transition-all duration-500 mx-auto"
                   whileHover={{ scale: 1.05 }}
                 >
                   <img
-                    src="/src/assets/myprofile.jpg"
+                    src="/myprofile.jpg"
                     alt="Darshan Bhere"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                   />
                   
                   {/* Overlay gradient */}
