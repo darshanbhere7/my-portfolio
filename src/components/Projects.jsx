@@ -150,11 +150,11 @@ const Projects = () => {
               }}
             >
               {/* Project Image */}
-              <div className="sm:w-2/5 w-full h-48 sm:h-auto relative overflow-hidden min-h-[180px] flex-shrink-0">
+              <div className="sm:w-2/5 w-full aspect-video h-40 xs:h-48 sm:h-auto relative overflow-hidden min-h-[140px] flex-shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-all duration-700 group-hover:scale-105"
+                  className="object-cover w-full h-full aspect-video rounded-xl transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-40 transition-all duration-500`}></div>
