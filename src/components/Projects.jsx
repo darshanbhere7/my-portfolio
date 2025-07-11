@@ -3,6 +3,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Eye, Code, Sparkles, Zap, Users, Database, Brain, Smartphone, Globe, Palette } from 'lucide-react';
+import carsworldImg from '@/assets/carsworld.jpg';
+import wandersplitImg from '@/assets/wandersplit.jpg';
+import algotracexImg from '@/assets/algotracex.jpg';
+import unnatiImg from '@/assets/unnati.jpg';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -17,56 +21,48 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'AlgoViz – Data Structures Visualizer',
-      description: 'A full-stack web application to visualize data structures and algorithms interactively with AI-powered assistance.',
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
-      tags: ['MERN Stack', 'OpenAI API', 'React', 'Node.js', 'MongoDB'],
-      liveUrl: 'https://algoviz-demo.com',
-      githubUrl: 'https://github.com/darshanbhere7/AlgoViz.git',
-      type: 'web',
-      category: 'ai',
-      features: ['Interactive Visualizations', 'AI Chat Assistant', 'Role-based Access', 'Algorithm Recommendations'],
+      title: 'CarsWorld – Car Rental Platform',
+      description: 'Full-stack car rental app with real-time dashboard, booking, wishlist, reviews, and image uploads.',
+      image: carsworldImg,
+      tags: ['MERN Stack', 'Socket.io', 'ImageKit', 'React', 'Tailwind CSS'],
+      githubUrl: 'https://github.com/darshanbhere7/CarsWorld',
+      features: ['Real-time Updates', 'JWT Auth', 'Admin/User Modules', '3D Car Visualization'],
       status: 'Featured',
-      gradient: 'from-blue-600 via-purple-600 to-indigo-600'
+      gradient: 'from-blue-600 via-purple-600 to-indigo-600',
+      category: 'web',
     },
     {
-      title: 'WanderSplit – Travel Expense Splitting',
-      description: 'Cross-platform mobile app to manage and split travel expenses among group members with real-time synchronization.',
-      image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-      tags: ['Flutter', 'Firebase', 'Real-time DB', 'Cross-platform'],
-      liveUrl: 'https://wandersplit-demo.com',
-      githubUrl: 'https://github.com/darshanbhere7/wanderSplit.git',
-      type: 'mobile',
-      category: 'mobile',
-      features: ['Real-time Sync', 'Group Management', 'Automated Splitting', 'Expense Tracking'],
+      title: 'WanderSplit – Travel Expense Splitter',
+      description: 'Cross-platform app to manage and split travel expenses with real-time sync and analytics.',
+      image: wandersplitImg,
+      tags: ['Flutter', 'Firebase', 'fl_chart', 'Responsive UI'],
+      githubUrl: 'https://github.com/darshanbhere7/wanderSplit',
+      features: ['Custom Splits', 'Receipt Uploads', 'Realtime Tracking', 'Analytics'],
       status: 'Popular',
-      gradient: 'from-emerald-500 via-teal-500 to-cyan-500'
+      gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+      category: 'mobile',
+    },
+    {
+      title: 'AlgoTraceX – DSA Learning Platform',
+      description: 'Interactive DSA learning with visualizations, practice, analytics, and AI-powered help.',
+      image: algotracexImg,
+      tags: ['MERN Stack', 'Gemini API', 'React', 'Node.js'],
+      githubUrl: 'https://github.com/darshanbhere7/AlgoTraceX',
+      features: ['Topic Visualizations', 'Practice Questions', 'AI Assistant', 'Admin Dashboard'],
+      status: 'New',
+      gradient: 'from-violet-600 via-purple-600 to-blue-600',
+      category: 'ai',
     },
     {
       title: 'Unnati – Rural Girls Empowerment',
-      description: 'Platform built during hackathon to support rural girls development through accessible online learning and digital tools.',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
-      tags: ['MERN', 'Firebase', 'Accessibility', 'Social Impact'],
-      liveUrl: 'https://unnati-platform.com',
-      githubUrl: 'https://github.com/TejasDesai007/Rural_Girls_Empowerment.git',
-      type: 'web',
-      category: 'web',
-      features: ['Course Modules', 'Digital Toolkit', 'Low-resource Optimized', 'Multilingual Support'],
+      description: 'Social impact platform for rural girls: learning, mentorship, and career support.',
+      image: unnatiImg,
+      tags: ['MERN', 'Firebase', 'React', 'Tailwind CSS', 'Radix UI'],
+      githubUrl: 'https://github.com/TejasDesai007/Rural_Girls_Empowerment',
+      features: ['Mentor Sections', 'Dashboard', 'Accessible UI', 'Responsive Design'],
       status: 'Impact',
-      gradient: 'from-pink-500 via-rose-500 to-orange-500'
-    },
-    {
-      title: 'Portfolio Dashboard',
-      description: 'Modern, responsive portfolio website with dark mode, animations, and interactive components.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      tags: ['React', 'Tailwind CSS', 'Framer Motion', 'Responsive'],
-      liveUrl: 'https://portfolio-demo.com',
-      githubUrl: 'https://github.com/darshanbhere7/portfolio',
-      type: 'web',
+      gradient: 'from-pink-500 via-rose-500 to-orange-500',
       category: 'web',
-      features: ['Dark Mode', 'Smooth Animations', 'Responsive Design', 'SEO Optimized'],
-      status: 'New',
-      gradient: 'from-violet-600 via-purple-600 to-blue-600'
     }
   ];
 
@@ -124,7 +120,6 @@ const Projects = () => {
           {filters.map((filter) => {
             const Icon = filter.icon;
             const isActive = activeFilter === filter.id;
-            
             return (
               <Button
                 key={filter.id}
@@ -134,12 +129,11 @@ const Projects = () => {
                   group relative px-6 py-3 font-medium transition-all duration-300 hover:scale-105
                   ${isActive 
                     ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25' 
-                    : 'bg-white/80 dark:bg-slate-800/80 hover:shadow-md hover:shadow-purple-500/10 hover:border-purple-300 dark:hover:border-purple-600 text-slate-700 dark:text-slate-200'
-                  }
+                    : 'bg-black/90 text-white dark:bg-slate-800/80 hover:shadow-md hover:shadow-purple-500/10 hover:border-purple-300 dark:hover:border-purple-600'}
                 `}
               >
-                <Icon className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                {filter.label}
+                <Icon className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300 text-white" />
+                <span className="text-white">{filter.label}</span>
                 {isActive && (
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-md blur opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
                 )}
@@ -149,122 +143,68 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto w-full">
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="group relative transform transition-all duration-500 hover:scale-[1.02]"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
+              className="group flex flex-col md:flex-row items-stretch bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-0 min-h-[260px] max-h-[340px] w-full"
               style={{
                 animationDelay: `${index * 150}ms`,
-                animation: 'fadeInUp 0.8s ease-out forwards'
+                animation: 'fadeInUp 0.8s ease-out forwards',
               }}
             >
-              <Card className="overflow-hidden border-0 shadow-2xl shadow-gray-200/50 dark:shadow-gray-800/50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm group-hover:shadow-3xl group-hover:shadow-purple-500/20 transition-all duration-500">
-                {/* Project Image with Overlay */}
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                  />
-                  
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-90 transition-all duration-500`}></div>
-                  
-                  {/* Status Badge */}
-                  <div className={`absolute top-4 left-4 px-3 py-1 ${getStatusColor(project.status)} text-white text-xs font-bold rounded-full shadow-lg`}>
-                    {project.status}
+              {/* Project Image */}
+              <div className="md:w-2/5 w-full h-48 md:h-auto relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="object-cover w-full h-full transition-all duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-40 transition-all duration-500`}></div>
+                <div className={`absolute top-4 left-4 px-3 py-1 ${getStatusColor(project.status)} text-white text-xs font-bold rounded-full shadow-lg`}>{project.status}</div>
+                {/* Code Button Overlay */}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full px-5 py-2 flex items-center gap-2 shadow-lg hover:scale-105 transition-transform duration-300 z-10 border border-white/80 dark:border-white/20"
+                >
+                  <Code className="w-5 h-5 text-white" /> <span className="whitespace-nowrap font-semibold text-base text-white">Code</span>
+                </a>
+              </div>
+              {/* Project Content */}
+              <div className="flex-1 flex flex-col justify-between p-6 space-y-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mt-2 mb-4 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="secondary" className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 border-0 hover:scale-105 transition-transform duration-200">{tag}</Badge>
+                    ))}
                   </div>
-                  
-                  {/* Action Buttons */}
-                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <Button 
-                      size="lg" 
-                      className="bg-white/20 backdrop-blur-md text-white border-white/30 hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-110"
-                      asChild
-                    >
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <Eye className="w-5 h-5 mr-2" />
-                        Live Demo
-                      </a>
-                    </Button>
-                    <Button 
-                      size="lg" 
-                      variant="outline" 
-                      className="bg-white/20 backdrop-blur-md text-white border-white/30 hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-110"
-                      asChild
-                    >
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-5 h-5 mr-2" />
-                        Code
-                      </a>
-                    </Button>
+                  <div className="flex flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400 mt-2">
+                    {project.features.map((feature, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></span>{feature}</span>
+                    ))}
                   </div>
                 </div>
-
-                <CardContent className="p-8 space-y-6">
-                  {/* Title and Description */}
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Features */}
-                  <div className="space-y-3">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-yellow-500" />
-                      Key Features
-                    </h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {project.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></div>
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tech Stack Tags */}
-                  <div className="space-y-3">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                      <Code className="w-4 h-4 text-green-500" />
-                      Tech Stack
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <Badge
-                          key={tagIndex}
-                          variant="secondary"
-                          className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 border-0 hover:scale-105 transition-transform duration-200"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-
-                {/* Hover Effect Border */}
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm"></div>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-20">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg shadow-purple-500/25">
-            <Github className="w-5 h-5" />
-            View All Projects on GitHub
-            <ExternalLink className="w-4 h-4" />
-          </div>
+        <div className="text-center mt-16">
+          <a
+            href="https://github.com/darshanbhere7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg shadow-purple-500/25 border border-white/80 dark:border-white/20"
+          >
+            <Github className="w-5 h-5 text-white" />
+            <span className="whitespace-nowrap font-semibold text-lg text-white">View All Projects on GitHub</span>
+            <ExternalLink className="w-4 h-4 text-white" />
+          </a>
         </div>
       </div>
 

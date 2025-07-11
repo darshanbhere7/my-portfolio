@@ -419,8 +419,8 @@ const Contact = () => {
                   className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <a href="mailto:darshanbhere2@gmail.com" className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" />
-                    Start Conversation
+                    <Mail className="h-4 w-4 text-white" />
+                    <span className="text-white font-semibold">Start Conversation</span>
                   </a>
                 </Button>
               </div>

@@ -83,114 +83,109 @@ const About = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full border border-white/20 mb-6 shadow-lg">
-            <Sparkles className="w-4 h-4 text-purple-500" />
-            <span className="text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full border border-white/30 mb-6 shadow-lg">
+            <Sparkles className="w-5 h-5 text-purple-500" />
+            <span className="text-base font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               About Me
             </span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-100 dark:to-white bg-clip-text text-transparent">
-            Crafting Digital
-            <br />
-            <span className="relative">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-100 dark:to-white bg-clip-text text-transparent drop-shadow-md">
+            Crafting Digital<br />
+            <span className="relative inline-block">
               Experiences
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"></div>
+              <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full"></span>
             </span>
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-700 dark:text-slate-200 max-w-3xl mx-auto leading-relaxed font-medium">
             I'm a passionate full-stack developer with a keen eye for creating elegant solutions. 
             Currently pursuing my Master's in Computer Applications while building innovative web applications 
             and exploring cutting-edge technologies.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-10 mb-20">
           {/* Education Timeline */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-8">
+          <div className="lg:col-span-2 flex flex-col gap-8">
+            <div className="flex items-center gap-3 mb-6">
               <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-slate-800 dark:text-white">Education Journey</h3>
+              <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Education Journey</h3>
             </div>
-            
-            <div className="space-y-6">
+            <div className="flex flex-col gap-6">
               {education.map((item, index) => (
-                <div key={index} className="group relative">
-                  <Card className="p-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                    <CardContent className="p-0">
-                      <div className="flex items-start gap-4">
-                        <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
-                          item.status === 'current' 
-                            ? 'bg-gradient-to-r from-green-400 to-emerald-500 animate-pulse' 
-                            : 'bg-gradient-to-r from-blue-400 to-purple-500'
-                        } shadow-lg`}>
-                          {item.status === 'current' ? (
-                            <Star className="w-6 h-6 text-white" />
-                          ) : (
-                            <GraduationCap className="w-6 h-6 text-white" />
-                          )}
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Badge variant="outline" className="text-xs font-medium">
-                              {item.year}
-                            </Badge>
-                            {item.status === 'current' && (
-                              <Badge className="text-xs bg-green-100 text-green-700 border-green-200">
-                                Current
-                              </Badge>
-                            )}
-                          </div>
-                          <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-1">
-                            {item.title}
-                          </h4>
-                          <p className="text-purple-600 dark:text-purple-400 font-medium mb-2">
-                            {item.institution}
-                          </p>
-                          <p className="text-slate-600 dark:text-slate-300 text-sm mb-2">
-                            {item.description}
-                          </p>
-                          {item.gpa && (
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-full">
-                              <span className="text-sm font-semibold text-orange-700 dark:text-orange-300">
-                                GPA: {item.gpa}
-                              </span>
-                            </div>
-                          )}
-                        </div>
+                <Card key={index} className="p-7 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 rounded-2xl">
+                  <CardContent className="p-0">
+                    <div className="flex items-start gap-5">
+                      <div className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center ${
+                        item.status === 'current' 
+                          ? 'bg-gradient-to-r from-green-400 to-emerald-500 animate-pulse' 
+                          : 'bg-gradient-to-r from-blue-400 to-purple-500'
+                      } shadow-lg`}>
+                        {item.status === 'current' ? (
+                          <Star className="w-7 h-7 text-white" />
+                        ) : (
+                          <GraduationCap className="w-7 h-7 text-white" />
+                        )}
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="outline" className="text-xs font-semibold px-3 py-1 bg-white/80 dark:bg-slate-700/80 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200">
+                            {item.year}
+                          </Badge>
+                          {item.status === 'current' && (
+                            <Badge className="text-xs bg-green-100 text-green-700 border-green-200 font-semibold px-2 py-1">
+                              Current
+                            </Badge>
+                          )}
+                        </div>
+                        <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-purple-700 dark:text-purple-300 font-medium mb-2">
+                          {item.institution}
+                        </p>
+                        <p className="text-slate-700 dark:text-slate-200 text-base mb-2">
+                          {item.description}
+                        </p>
+                        {item.gpa && (
+                          <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-full">
+                            <span className="text-sm font-semibold text-orange-700 dark:text-orange-300">
+                              GPA: {item.gpa}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
 
           {/* Achievements */}
-          <div>
-            <div className="flex items-center gap-3 mb-8">
+          <div className="flex flex-col gap-8">
+            <div className="flex items-center gap-3 mb-6">
               <div className="p-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl shadow-lg">
                 <Trophy className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-slate-800 dark:text-white">Achievements</h3>
+              <h3 className="text-3xl font-bold text-slate-900 dark:text-white">Achievements</h3>
             </div>
-            
             {achievements.map((achievement, index) => (
-              <Card key={index} className="p-6 bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border-yellow-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 mb-6">
+              <Card key={index} className="p-7 bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 mb-2 rounded-2xl">
                 <CardContent className="p-0">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                      <achievement.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                      <achievement.icon className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-800 dark:text-white mb-1">
+                      <h4 className="font-bold text-slate-900 dark:text-white mb-1 text-lg">
                         {achievement.title}
                       </h4>
-                      <p className="text-orange-600 dark:text-orange-400 font-medium text-sm mb-2">
+                      <p className="text-orange-700 dark:text-orange-300 font-medium text-sm mb-2">
                         {achievement.organization}
                       </p>
-                      <p className="text-slate-600 dark:text-slate-300 text-sm">
+                      <p className="text-slate-700 dark:text-slate-200 text-base">
                         {achievement.description}
                       </p>
                     </div>
@@ -202,22 +197,21 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="mb-16">
+        <div className="mb-20">
           <div className="flex items-center justify-center gap-3 mb-12">
             <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg">
               <Code2 className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-4xl font-bold text-slate-800 dark:text-white">Technical Arsenal</h3>
+            <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Technical Arsenal</h3>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skillGroup, index) => (
-              <Card key={index} className="group p-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
+              <Card key={index} className="group p-7 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden relative rounded-2xl">
                 <div className={`absolute inset-0 bg-gradient-to-br ${skillGroup.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                 <CardContent className="p-0 relative z-10">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl">{skillGroup.icon}</span>
-                    <h4 className="text-xl font-bold text-slate-800 dark:text-white">
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white">
                       {skillGroup.category}
                     </h4>
                   </div>
@@ -226,7 +220,7 @@ const About = () => {
                       <Badge
                         key={skillIndex}
                         variant="secondary"
-                        className="px-3 py-1.5 text-xs font-medium bg-white/80 dark:bg-slate-700/80 hover:bg-white dark:hover:bg-slate-700 transition-colors duration-300 shadow-sm hover:shadow-md"
+                        className="px-3 py-1.5 text-xs font-semibold bg-white/90 dark:bg-slate-700/90 hover:bg-white dark:hover:bg-slate-700 transition-colors duration-300 shadow-sm hover:shadow-md text-slate-800 dark:text-slate-100"
                       >
                         {skill}
                       </Badge>
@@ -240,12 +234,12 @@ const About = () => {
 
         {/* Call to Action */}
         <div className="text-center">
-          <Card className="inline-block p-8 bg-gradient-to-r from-purple-500/10 to-blue-500/10 backdrop-blur-sm border-purple-200/30 shadow-2xl">
+          <Card className="inline-block p-10 bg-gradient-to-r from-purple-500/10 to-blue-500/10 backdrop-blur-sm border border-purple-200/30 shadow-2xl rounded-2xl">
             <CardContent className="p-0">
-              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Let's Build Something Amazing Together
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 mb-6 max-w-md">
+              <p className="text-slate-700 dark:text-slate-200 mb-6 max-w-md mx-auto text-base font-medium">
                 I'm always excited to work on innovative projects and collaborate with fellow developers.
               </p>
               <div className="flex items-center justify-center gap-4">

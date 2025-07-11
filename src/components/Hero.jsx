@@ -181,12 +181,11 @@ const Hero = () => {
               >
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="gap-2 border-primary/50 hover:border-primary hover:bg-primary/10 shadow-md hover:shadow-lg transition-all duration-300"
+                  className="gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700 hover:text-white transition-all duration-300"
                   onClick={handleDownloadResume}
                 >
-                  <Download className="h-4 w-4" />
-                  Download Resume
+                  <Download className="h-4 w-4 text-white" />
+                  <span className="text-white">Download Resume</span>
                 </Button>
               </motion.div>
             </motion.div>

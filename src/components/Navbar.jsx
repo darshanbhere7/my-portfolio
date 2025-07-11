@@ -53,30 +53,29 @@ const Navbar = () => {
 
   const NavLink = ({ link, isMobile = false }) => {
     const isActive = activeSection === link.to;
-    
     return (
       <Link
         to={link.to}
         smooth={true}
         duration={500}
         className={`
-          relative px-4 py-2 text-sm font-medium transition-all duration-300
+          relative px-4 py-2 text-sm font-semibold transition-all duration-300
           ${isActive 
             ? 'text-primary' 
-            : 'text-muted-foreground hover:text-foreground'
-          }
+            : 'text-muted-foreground hover:text-blue-600 dark:hover:text-purple-400'}
           ${isMobile ? 'block w-full text-center' : ''}
+          group
         `}
         onClick={() => setActiveSection(link.to)}
       >
-        {link.name}
-        {isActive && (
-          <motion.div
-            layoutId={`nav-indicator-${isMobile ? 'mobile' : 'desktop'}`}
-            className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          />
-        )}
+        <span className="relative z-10 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-purple-400">
+          {link.name}
+        </span>
+        <motion.div
+          layoutId={`nav-indicator-${isMobile ? 'mobile' : 'desktop'}`}
+          className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 transition-all duration-300 ${isActive ? 'w-8 opacity-100' : 'w-0 opacity-0 group-hover:w-8 group-hover:opacity-60'}`}
+          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        />
       </Link>
     );
   };
@@ -96,16 +95,18 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.08, rotate: 2 }}
+            whileTap={{ scale: 0.97 }}
+            className="transition-all duration-300"
           >
             <Link
               to="home"
-              className="text-2xl font-bold bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer"
+              className="text-2xl font-extrabold bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer relative group"
               smooth={true}
               duration={500}
             >
-              Darshan Bhere
+              <span className="relative z-10">Darshan Bhere</span>
+              <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm bg-gradient-to-r from-blue-400/30 via-purple-400/30 to-blue-400/30 animate-pulse" />
             </Link>
           </motion.div>
 
@@ -117,14 +118,15 @@ const Navbar = () => {
             
             {/* Theme Toggle */}
             <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.18, rotate: 10 }}
+              whileTap={{ scale: 0.92 }}
+              className="transition-all duration-300"
             >
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="rounded-full hover:bg-primary/10"
+                className="rounded-full hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-300 shadow-sm"
               >
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -151,7 +153,7 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden rounded-full hover:bg-primary/10"
+                className="md:hidden rounded-full hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-300 shadow-sm"
               >
                 <Menu className="h-6 w-6" />
               </Button>
@@ -170,7 +172,7 @@ const Navbar = () => {
                     variant="outline"
                     size="icon"
                     onClick={toggleTheme}
-                    className="rounded-full hover:bg-primary/10"
+                    className="rounded-full hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-300 shadow-sm"
                   >
                     <AnimatePresence mode="wait">
                       <motion.div
