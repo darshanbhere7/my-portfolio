@@ -8,7 +8,7 @@ import { Link } from 'react-scroll';
 const Hero = () => {
   const handleDownloadResume = () => {
     // Convert Google Drive share link to direct download link
-    const fileId = '143BOJulR9zM_lAw3oUADVUgwExNVTJSB';
+    const fileId = '1MhqKG7W99qBXDK7M5tGpDSIbH0DQg18j';
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
     
     // Create a temporary link and trigger download
